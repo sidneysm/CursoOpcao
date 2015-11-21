@@ -1,0 +1,380 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Fo",
+				"ForeignKey	class"
+			],
+			[
+				"em",
+				"EmailField	class"
+			],
+			[
+				"da",
+				"DateTimeField	class"
+			],
+			[
+				"Mode",
+				"Model	Model"
+			],
+			[
+				"Mo",
+				"Model	Model"
+			],
+			[
+				"sm",
+				"smtplib	module"
+			],
+			[
+				"Ta",
+				"Tarefa	class"
+			],
+			[
+				"e",
+				"else	keyword"
+			],
+			[
+				"re",
+				"redirect	function"
+			],
+			[
+				"t",
+				"type	Attr"
+			],
+			[
+				"ex",
+				"extends	extends"
+			],
+			[
+				"ta",
+				"tarefa"
+			],
+			[
+				"Tarefa",
+				"TarefaForm	class"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"ModelF",
+				"ModelForm	ModelForm"
+			],
+			[
+				"get",
+				"get_object_or_404	function"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"in",
+				"include	function"
+			],
+			[
+				"ur",
+				"url"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "CursoOpcao/settings.py",
+			"settings":
+			{
+				"buffer_size": 2720,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "from django.db import models\nfrom django.utils import timezone\n\n# Create your models here.\nclass Aluno(models.Model):\n	matricula = models.AutoField(primary_key=True)\n	nome =  models.CharField(max_length=200)\n	cpf = models.IntegerField()\n	endereco = models.CharField()\n	data_de_nascimento = models.DateTimeField(blank=True, null=False)\n	matriculado = models.BooleanField()\n	email = models.EmailField()\n	curso = models.ForeignKey('nome.Curso')\n\n    class Meta:\n        verbose_name = \"Aluno\"\n        verbose_name_plural = \"Alunos\"\n\n    def publish(self):\n    	pass\n\n    def __str__(self):\n        pass\n\n\nclass Professor(models.Model):\n	matricula = models.AutoField(primary_key=True)\n	nome =  models.CharField(max_length=200)\n	cpf = models.IntegerField()\n	endereco = models.CharField()\n	data_de_nascimento = models.DateTimeField(blank=True, null=False)\n	matriculado = models.BooleanField()\n	email = models.EmailField()\n	curso = models.ForeignKey('nome.Curso')\n\n    class Meta:\n        verbose_name = \"Professor\"\n        verbose_name_plural = \"Professor\"\n\n    def publish(self):\n    	pass\n\n    def __str__(self):\n        pass\n\n\nclass Curso(models.Model):\n\n	nome =  models.CharField(max_length=200)\n\n    class Meta:\n        verbose_name = \"Curso\"\n        verbose_name_plural = \"Cursos\"\n\n    def __str__(self):\n        pass\n    ",
+			"file": "curso/models.py",
+			"file_size": 57,
+			"file_write_time": 130925453508718875,
+			"settings":
+			{
+				"buffer_size": 1322,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 311.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"insp",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/CursoOpcao"
+	],
+	"file_history":
+	[
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/alunos/models.py",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/Tarefas/urls.py",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/urls.py",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/templates/core/base.html",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/views.py",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/templates/core/detalhe_tarefa.html",
+		"/D/Projetos/Python/Django/pythonclub/.gitignore",
+		"/D/Projetos/Templates/Ceevee10/index.html",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/templates/core/tarefa_list.html",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/templates/core/tarefa_edit.html",
+		"/D/Projetos/Templates/Free Website Template with jQuery Slider for Business Project/site/css/style.css",
+		"/D/Projetos/Templates/Free Website Template with jQuery Slider for Business Project/site/index.html",
+		"/D/Projetos/Templates/Template-strongly-typed/left-sidebar.html",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/models.py",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/forms.py",
+		"/D/Projetos/Templates/Template-strongly-typed/assets/css/font-awesome.min.css",
+		"/D/Projetos/Templates/Template-strongly-typed/index.html",
+		"/D/Projetos/Templates/Template-strongly-typed/assets/css/main.css",
+		"/D/Projetos/Templates/Template-strongly-typed/assets/css/ie8.css",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/Tarefas/qualquer.html",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/static/css/tarefas.css",
+		"/C/Users/Sidney/Desktop/inicia_ambiente.cmd",
+		"/D/Projetos/Python/Django/pythonclub/Tarefas/core/templates/tarefas/tarefa_list.html",
+		"/D/Projetos/Python/Django/pythonclub/TarefasProjeto.sublime-project",
+		"/C/Users/Sidney/Documents/Projetos/Python/Django/pythonclub/Tarefas/Tarefas/urls.py",
+		"/C/Users/Sidney/Documents/Projetos/Python/Django/pythonclub/Tarefas/core/urls.py",
+		"/C/Users/Sidney/Documents/Projetos/Python/Django/pythonclub/Tarefas/manage.py",
+		"/C/Users/Sidney/Documents/Projetos/Python/Django/pythonclub/Tarefas/core/views.py",
+		"/C/Users/Sidney/Documents/Projetos/Python/Django/pythonclub/Tarefas/core/admin.py"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"staticfiles"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "CursoOpcao/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2720,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1079,
+								1079
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "curso/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1322,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1123,
+								1123
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Anaconda Python Builder",
+	"project": "CursoOpcaoProjeto.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 240.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

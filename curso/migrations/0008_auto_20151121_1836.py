@@ -7,12 +7,8 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('curso', '0002_auto_20151121_0704'),
+        ('curso', '0007_aluno_usuario'),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='professor',
-            name='curso',
-        ),
     ]

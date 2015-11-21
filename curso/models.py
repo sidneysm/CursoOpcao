@@ -6,18 +6,41 @@ from django.contrib.auth.models import User
 
 
 class Aluno(models.Model):
-	usuario = models.OneToOneField(User, blank=True, null=False, editable=False, default="")
+	usuario = models.ForeignKey(User, blank=True, null=False, editable=False, default="")
+	
+	matricula = models.AutoField(primary_key=True)
+	nome = models.CharField(max_length=200)
 	endereco = models.CharField(max_length=400)
 	data_de_nascimento = models.DateField(blank=True, null=False)
 	data_de_matricula = models.DateTimeField(blank=True, null=True)
 	ativo = models.BooleanField()
 	email = models.EmailField()
-	senha = models.CharField(max_length=20)
+	senha = models.CharField(max_length=20, null=True)
 	
 
 	class Meta:
 		verbose_name = "Aluno"
 		verbose_name_plural = "Alunos"
+
+	def save(self):
+		if not self.matricula:
+			c = Aluno.objects.filter(email=self.email).count()
+			if c:
+				print("Email não existe")
+			usr = User.objects.filter(username=self.email)
+			if usr:
+				u = usr[0]
+			else:
+				u = User.objects.create_user(self.email, self.email, self.senha)
+			u.save()
+			self.usuario = u
+		else:
+			self.usuario.username = self.email
+			self.usuario.email = self.email
+			self.usuario.set_password(self.senhaAluno)
+
+		super(Aluno, self).save()
+
 
 	def publish(self):
 		self.data_de_matricula = timezone.now()
@@ -50,7 +73,7 @@ class Curso(models.Model):
 
 	nome = models.CharField(max_length=200)
 	disciplinas = models.ManyToManyField('Disciplina')
-	alunos = models.ManyToManyField('Aluno', null=True, default="")
+	alunos = models.ManyToManyField('Aluno')
 
 	class Meta:
 		verbose_name = "Curso"

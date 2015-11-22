@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"u",
+				"username"
+			],
+			[
+				"def",
+				"def	Function"
+			],
+			[
+				"co",
+				"contrib	module"
+			],
+			[
 				"n",
 				"now	function"
 			],
@@ -120,6 +132,14 @@
 	"buffers":
 	[
 		{
+			"file": "curso/urls.py",
+			"settings":
+			{
+				"buffer_size": 105,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "CursoOpcao/settings.py",
 			"settings":
 			{
@@ -131,23 +151,7 @@
 			"file": "curso/models.py",
 			"settings":
 			{
-				"buffer_size": 1706,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "CursoOpcao/urls.py",
-			"settings":
-			{
-				"buffer_size": 760,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "curso/admin.py",
-			"settings":
-			{
-				"buffer_size": 161,
+				"buffer_size": 2341,
 				"line_ending": "Unix"
 			}
 		}
@@ -202,10 +206,24 @@
 	[
 		"/D/Projetos/Python/Django/pythonclub/CursoOpcao",
 		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso",
-		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/CursoOpcao"
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations/__pycache__",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/templates"
 	],
 	"file_history":
 	[
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations/0014_merge.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations/0013_merge.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/templates/curso/index.html",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/admin.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations/0009_auto_20151121_1845.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations/0006_auto_20151121_0749.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations/0010_aluno_usuario.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/migrations/0007_aluno_usuario.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/models.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/curso/views.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/CursoOpcao/settings.py",
+		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/CursoOpcao/urls.py",
 		"/D/Projetos/Python/Django/pythonclub/.gitignore",
 		"/D/Projetos/Python/Django/pythonclub/CursoOpcao/alunos/models.py",
 		"/D/Projetos/Python/Django/pythonclub/Tarefas/Tarefas/urls.py",
@@ -252,6 +270,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"senha",
+			"=\"\")",
+			"]",
+			"index",
 			"staticfiles"
 		],
 		"highlight": true,
@@ -275,6 +297,36 @@
 			[
 				{
 					"buffer": 0,
+					"file": "curso/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_name": "",
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "CursoOpcao/settings.py",
 					"semi_transient": false,
 					"settings":
@@ -286,39 +338,38 @@
 						"selection":
 						[
 							[
-								2360,
-								2360
+								2221,
+								2221
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
 							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 315.0,
+						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 2,
 					"file": "curso/models.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1706,
+						"buffer_size": 2341,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								622,
-								622
+								1030,
+								1030
 							]
 						],
 						"settings":
@@ -327,68 +378,11 @@
 							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "CursoOpcao/urls.py",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 760,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								710,
-								710
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "curso/admin.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 161,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								161
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -475,7 +469,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 240.0,
+	"side_bar_width": 195.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

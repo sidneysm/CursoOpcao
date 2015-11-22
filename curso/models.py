@@ -13,7 +13,7 @@ class Aluno(models.Model):
 	endereco = models.CharField(max_length=400)
 	data_de_nascimento = models.DateField(blank=True, null=False)
 	data_de_matricula = models.DateTimeField(blank=True, null=True)
-	ativo = models.BooleanField()
+	ativo = models.BooleanField(default=False)
 	email = models.EmailField()
 	senha = models.CharField(max_length=20, null=True)
 	
@@ -37,7 +37,7 @@ class Aluno(models.Model):
 		else:
 			self.usuario.username = self.email
 			self.usuario.email = self.email
-			self.usuario.set_password(self.senhaAluno)
+			self.usuario.set_password(self.senha)
 
 		super(Aluno, self).save()
 
@@ -51,16 +51,37 @@ class Aluno(models.Model):
 
 
 class Professor(models.Model):
+	usuario = models.ForeignKey(User, blank=True, null=True, editable=False, default="")
+
 	nome = models.CharField(max_length=200)
+	
 	cpf = models.IntegerField()
 	endereco = models.CharField(max_length=400)
 	data_de_nascimento = models.DateField(blank=True, null=False)
 	email = models.EmailField()
-	
+	senha = models.CharField(max_length=20, null=True)
 	
 	class Meta:
 		verbose_name = "Professor"
-		verbose_name_plural = "Professor"
+		verbose_name_plural = "Professores"
+
+	def save(self):
+		if not self.id:
+			c = Professor.objects.filter(email=self.email).count()
+			if c:
+				print("Email não existe")
+			usr = User.objects.filter(username=self.email)
+			if usr:
+				p = usr[0]
+			else:
+				p = User.objects.create_user(self.email, self.email, self.senha)
+			p.save()
+			self.professor = p
+		else:
+			self.professor.username = self.email
+			self.professor.email = self.email
+			self.professor.set_password(self.senha)
+		super(Professor, self).save()
 
 	def publish(self):
 		self.save()
@@ -80,9 +101,6 @@ class Curso(models.Model):
 		verbose_name_plural = "Cursos"
 
 	def publish(self):
-		for aluno in self.alunos:
-			aluno.ativo = True
-			
 		self.save()
 
 	def __str__(self):

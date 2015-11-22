@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+		}
+	</style>
+	<title>Lista de alunos</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Matrícula</th>
+			<th>Nome</th>		
+			<th>Endereço</th>
+			<th>Telefone</th>
+			<th>Email</th>
+		</tr>
+		{% for aluno in alunos %}
+		<tr>
+			<td>{{aluno.matricula}}</td>
+			<td>{{aluno.nome}}</td>
+			<td>{{aluno.endereco}}</td>
+			<td>{{aluno.telefone}}</td>
+			<td>{{aluno.email}}</td>
+		</tr>
+		{% endfor %}
+
+	</table>
+
+</body>
+</html>

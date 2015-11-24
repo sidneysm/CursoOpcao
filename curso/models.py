@@ -96,6 +96,8 @@ class Curso(models.Model):
 	nome = models.CharField(max_length=200)
 	disciplinas = models.ManyToManyField('Disciplina')
 	alunos = models.ManyToManyField('Aluno')
+	duracao = models.IntegerField(null=True)
+	data_de_inicio = models.DateField(null=True)
 
 	class Meta:
 		verbose_name = "Curso"

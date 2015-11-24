@@ -8,5 +8,15 @@
 	<h1><a href="{% url 'curso.views.realiza_matricula' %}">Realizar Matricula</a></h1>
 	<h1><a href="{% url 'curso.views.buscar_aluno' %}">Buscar Aluno</a></h1>
 	<h1><a href="{% url 'curso.views.curso' %}">Gerenciar Cursos</a></h1>
+	<form action="">
+	<form method="POST" class="post-form" action="{% url 'curso.views.lista_alunos' %}"> {% csrf_token %}
+		<p>
+			<label for="id_nome">Nome:</label> 
+			<input id="id_nome" maxlength="200" name="nome" type="text" />
+		</p>
+       
+        <button type="submit" class="save btn btn-default">Buscar</button>
+    </form>
+
 </body>
 </html>

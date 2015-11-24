@@ -20,7 +20,7 @@ def realiza_matricula(request):
 			aluno.save()
 	else:
 		form = AlunoForms
-	return render(request, 'curso/realiza_matricula.html', {'form': form})
+	return render(request, 'curso/realiza_cadastro.html', {'form': form})
 
 def lista_alunos(request):
 	alunos = Aluno.objects.filter(nome__contains=request.POST['nome'])

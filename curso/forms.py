@@ -1,8 +1,9 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
-class AlunoForms(forms.ModelForm):
-	senha = forms.CharField(widget=forms.PasswordInput)
+class AlunoForms(UserCreationForm):
+	
 	class Meta:
 		model = Aluno
-		fields = ('nome', 'endereco', 'data_de_nascimento', 'email', 'senha',)
+		fields = ('username', 'first_name', 'last_name', 'endereco', 'data_de_nascimento', 'email', )

@@ -9,7 +9,7 @@ class Aluno(User):
 	#usuario = models.ForeignKey(User, blank=True, null=False, editable=False, default="")
 	#user_ptr = models.CharField(null=True, max_length=50)
 	#matricula = models.AutoField(primary_key=True)
-	nome = models.CharField(max_length=200)
+	#nome = models.CharField(max_length=200)
 	endereco = models.CharField(max_length=400)
 	data_de_nascimento = models.DateField(blank=True, null=False)
 	data_de_matricula = models.DateTimeField(blank=True, null=True)
@@ -48,7 +48,7 @@ class Aluno(User):
 	# 	self.save()
 
 	def __str__(self):
-		return self.nome
+		return self.first_name
 
 
 class Professor(User):
@@ -88,14 +88,14 @@ class Professor(User):
 		self.save()
 
 	def __str__(self):
-		return self.nome
+		return self.first_name
 
 
 class Curso(models.Model):
 
 	nome = models.CharField(max_length=200)
 	disciplinas = models.ManyToManyField('Disciplina')
-	alunos = models.ManyToManyField('Aluno')
+	alunos = models.ManyToManyField('Aluno', blank=True, null=True)
 	duracao = models.IntegerField(null=True)
 	data_de_inicio = models.DateField(null=True)
 

@@ -12,7 +12,21 @@
 <body>
 	<h1>Novo aluno</h1>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+     <table>
+          {% for field in form %}
+                <tr>
+                    
+                    <td>{{ field.label_tag }}</td>
+                    <td>{{ field }}</td>
+                    <td>{{ field.errors }}</td>
+
+                </tr>
+    {% endfor %}
+
+     </table>
+        
+    
+
         <button type="submit" class="save btn btn-default">Guardar</button>
     </form>
 </body>

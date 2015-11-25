@@ -5,9 +5,9 @@ from .models import *
 
 # Create your views here.
 def index(request):
-	if request.method == "POST":
-		print("Aluno invalido")
-	return render(request, 'curso/index.html')
+	# if request.method == "POST":
+	# 	print("Aluno invalido")
+	return render(request, 'curso/index2.html')
 
 def buscar_aluno(request):
 	return render(request, 'curso/buscar_aluno.html')

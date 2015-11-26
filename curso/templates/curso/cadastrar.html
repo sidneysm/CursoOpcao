@@ -1,0 +1,23 @@
+{% extends "curso/base.html" %}
+
+{% block content %}
+	
+<div class="container">
+<h1>Novo aluno</h1>
+<form method="POST" class="post-form">{% csrf_token %}
+  <table>
+    {% for field in form %}
+    <tr>
+
+      <td>{{ field.label_tag }}</td>
+      <td>{{ field }}</td>
+      <td>{{ field.errors }}</td>
+
+    </tr>
+    {% endfor %}
+
+  </table>
+  <button type="submit" class="save btn btn-success">Cadastrar</button>
+</form>
+</div>
+{% endblock content %}

@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'curso',
-    #'redis_cache',
+    'redis_cache',
 )
 
 MIDDLEWARE_CLASSES = (

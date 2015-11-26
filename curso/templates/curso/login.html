@@ -1,0 +1,20 @@
+{% extends "curso/base.html" %}
+{% block content %}
+	<div class="container">
+	<form method="POST" class="form-signin" action="{% url 'curso.views.login' %}"> {% csrf_token %}
+		<h2 class="form-signin-heading">Faça o Login</h2>
+
+		<label for="inputEmail" class="sr-only">Nome</label>
+        <input type="text" name="nome" id="inputNome" class="form-control" placeholder="Nome de usuário" required autofocus>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Esqueci minha senha
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+
+    </form>
+    </div>
+{% endblock content %}

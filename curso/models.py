@@ -94,10 +94,12 @@ class Professor(User):
 class Curso(models.Model):
 
 	nome = models.CharField(max_length=200)
+	descricao = models.TextField(null=True)
 	disciplinas = models.ManyToManyField('Disciplina')
-	alunos = models.ManyToManyField('Aluno', blank=True, null=True)
+	alunos = models.ManyToManyField('Aluno', blank=True,)
 	duracao = models.IntegerField(null=True)
 	data_de_inicio = models.DateField(null=True)
+
 
 	class Meta:
 		verbose_name = "Curso"

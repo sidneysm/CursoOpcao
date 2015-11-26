@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate
+from django.contrib.sessions.backends.db import SessionStore
+
 from .forms import AlunoForms
 from .models import *
 
@@ -7,7 +9,7 @@ from .models import *
 def index(request):
 	# if request.method == "POST":
 	# 	print("Aluno invalido")
-	return render(request, 'curso/index2.html')
+	return render(request, 'curso/index.html')
 
 def buscar_aluno(request):
 	return render(request, 'curso/buscar_aluno.html')
@@ -22,9 +24,11 @@ def realiza_matricula(request):
 			aluno = form.save(commit=False)
 			aluno.save()
 			index(request)
+			return render(request, 'curso/login.html')
 	else:
 		form = AlunoForms
-	return render(request, 'curso/realiza_cadastro.html', {'form': form})
+	return render(request, 'curso/cadastrar.html', {'form': form})
+
 
 def lista_alunos(request):
 	alunos = Aluno.objects.filter(nome__contains=request.POST['nome'])
@@ -38,15 +42,17 @@ def login(request):
 		if usuario is not None:
 			if usuario.is_active:
 			    print("User is valid, active and authenticated")
-			    print (type(usuario))
-			    return render(request, 'curso/aluno_detalhes.html')
+			    for x in request.session.keys():
+			    	print (request.session[x])
+
+			    return render(request, 'curso/aluno_detalhes.html', {'aluno': usuario},)
 			else:
 			    print("The password is valid, but the account has been disabled!")
 		else:
 		    # the authentication system was unable to verify the username and password
 		    print("The username and password were incorrect.")
 		
-	return render(request, 'curso/index.html')
+	return render(request, 'curso/login.html')
 
 def usuario_detalhe(request):
 	return render(request, 'curso/aluno_detalhes.html')

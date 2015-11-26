@@ -1,0 +1,6 @@
+{% extends "curso/base.html" %}
+
+{% block content %}
+	<h1>Você saiu</h1>
+	<h3>{% csrf_token %}<a href="{% url 'curso.views.index' %}">Página inicial</a></h3>
+{% endblock content %}

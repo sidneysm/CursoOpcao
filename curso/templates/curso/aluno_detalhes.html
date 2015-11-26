@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	Aluno detalhes {{ aluno.username }}
-</body>
-</html>
+{% extends "curso/base.html" %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h2>
+				Dados Pessoais
+			</h2>
+			<p> 
+				Nome: <br>
+				{{ aluno.first_name }} {{ aluno.last_name }}
+			<p>
+				Nome de usuário: <br>
+				{{ aluno.username }} 
+
+			</p>	
+			<p>Data de Nascimento: <br>
+				{{ aluno.data_de_nascimento }} 
+
+			</p>
+					
+		</div>
+		<div class="col-md-6">
+			<h2>
+				Contato
+			</h2>
+			<p>
+				Endereço: <br>
+				{{ aluno.endereco }}
+			</p>
+			<p>
+				Email: <br>
+				{{ aluno.email }}
+			</p>
+			<p>
+				Telefone: <br>
+				{{ aluno.telefone }} 
+			</p>
+			<p> {% csrf_token %} <a href="{% url 'curso.views.cursos' %}">Escolher um curso</a></p>
+		</div>
+		
+			
+			
+			
+			
+			
+		
+	</div>
+	<p> {% csrf_token %} <a href="{% url 'curso.views.sair' %}">Sair</a></p>
+</div>
+
+
+
+{% endblock content %}
+

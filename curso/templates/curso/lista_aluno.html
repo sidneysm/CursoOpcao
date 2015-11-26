@@ -16,19 +16,21 @@
 <body>
 	<table>
 		<tr>
-			<th>Matrícula</th>
+			
 			<th>Nome</th>		
 			<th>Endereço</th>
 			<th>Telefone</th>
 			<th>Email</th>
+			<th>Data de nascimento</th>
 		</tr>
 		{% for aluno in alunos %}
 		<tr>
-			<td>{{aluno.matricula}}</td>
-			<td>{{aluno.nome}}</td>
+			
+			<td>{{aluno.username}}</td>
 			<td>{{aluno.endereco}}</td>
 			<td>{{aluno.telefone}}</td>
 			<td>{{aluno.email}}</td>
+			<td>{{ aluno.data_de_nascimento }}</td>
 		</tr>
 		{% endfor %}
 

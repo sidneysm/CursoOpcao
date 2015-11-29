@@ -1,0 +1,43 @@
+{% extends "curso/base.html" %}
+{% block content %}
+	<div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>Aluno</h1>
+            Nome: {{ aluno.first_name }} {{ aluno.last_name }}<br>
+			CPF: {{ aluno.cpf }}<br>
+			Data de Nascimento: {{ aluno.data_de_nascimento }} <br>
+            Endereço: {{ aluno.endereco }} <br>
+            Telefone: {{ aluno.telefone }} <br>
+            Email: {{ aluno.email }} <br>
+
+
+          </div>
+          <div class="col-md-6">
+            <h1>Curso</h1>
+            </p>
+            Valor: R$ 300,00 <br>
+            Nome: {{ curso.nome }}<br>
+            Descricao: {{ curso.descricao }}<br>
+            Duração: {{ curso.duracao }} meses<br>
+            Data de Início: {{ curso.data_de_inicio }} <br></p>
+            <h4>Disciplinas:</h4>
+            {% for disciplina in curso.disciplinas.all %}
+            	Nome: {{ disciplina.nome }} <br>
+            	Professores:
+            	{% for professor in disciplina.professores.all %}
+            		
+            		{{ professor }} <br>
+            		
+            	{% endfor %}
+            	<br>
+            {% endfor %}
+			<a class="btn btn-primary btn-lg" href="{% url 'curso.views.confirmar_inscricao' id=curso.id %}" role="button">Confirmar e Gerar Boleto</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	
+	
+{% endblock content %}

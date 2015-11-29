@@ -7,12 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('curso', '0002_auto_20151124_0945'),
+        ('curso', '0001_initial'),
     ]
 
     operations = [
-        migrations.RemoveField(
+        migrations.AlterField(
             model_name='aluno',
-            name='nome',
+            name='situacao',
+            field=models.CharField(max_length=50, default='Pagamento não efetuado'),
         ),
     ]

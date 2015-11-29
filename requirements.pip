@@ -1,0 +1,9 @@
+Django==1.8.6
+django-localflavor==1.2
+django-redis==4.3.0
+django-redis-cache==1.6.4
+Pillow==3.0.0
+pyboleto==0.2.14
+redis==2.10.5
+reportlab==3.2.0
+wheel==0.24.0

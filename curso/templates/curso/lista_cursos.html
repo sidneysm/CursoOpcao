@@ -1,0 +1,33 @@
+{% extends "curso/base.html" %}
+
+{% block content %}
+
+<div class="container">
+      <div class="container">
+	
+		<div class="row">
+		
+			
+		
+		{% for curso in list_cursos %}
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading"><h3>Curso: {{ curso.nome }}</h3></div>
+					<div class="panel-body">
+					{{ curso.descricao }} <br>
+					<a class="btn btn-primary btn-lg" href="{% url 'curso.views.confirmar_inscricao' id=curso.id %}" role="button">Matricular-se</a>
+					</div>
+
+
+
+				
+				</div>
+			</div>
+
+	{% endfor %}
+	</div>
+	</div>
+	</div>
+
+{% endblock content %}
+

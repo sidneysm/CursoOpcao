@@ -10,4 +10,5 @@ urlpatterns = [
 	url(r'^aluno$', views.aluno),
 	url(r'^sair$', views.sair),
 	url(r'confirmar_inscricao/(?P<id>[0-9]+)/$', views.confirmar_inscricao, name="confirmar_inscricao"),
+	url(r'^gerar_boleto/(?P<id_curso>[0-9]+)/$$', views.gerar_boleto)
 ]

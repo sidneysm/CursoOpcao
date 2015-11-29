@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.sessions.backends.db import SessionStore
+from django.http import HttpResponse, FileResponse
+from reportlab.pdfgen import canvas
 
 from decimal import *
 import pyboleto
@@ -9,7 +11,7 @@ from pyboleto.data import BoletoData
 from pyboleto.pdf import BoletoPDF
 
 import datetime
-
+from curso.util import print_all, print_bb
 from .forms import AlunoForms
 from .models import *
 
@@ -89,3 +91,28 @@ def confirmar_inscricao(request, id):
 	curso = get_object_or_404(Curso, id=id)
 	
 	return render(request, 'curso/confirmar_inscricao.html', {'curso':curso, 'aluno':aluno})
+
+def gerar_boleto(request, id_curso):
+	aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
+	aluno.situacao = "Aguardando Confirmação de Pagamento"
+	aluno.save()
+	curso = Curso.objects.get(id=id_curso)
+	curso.alunos.add(aluno)
+	curso.save()
+	if request.user.is_authenticated():
+		
+		print_bb(aluno)
+		file_path ='curso/boletos/boleto-teste-%s.pdf' % aluno.first_name
+		
+		if request.method == "GET":
+			fp = open(file_path, 'rb')
+			response = HttpResponse(fp.read())
+			fp.close()
+
+			response['Content-Disposition'] = 'attachment; filename=%s' % 'boleto-teste-%s.pdf' % aluno.first_name
+			# response['X-Sendfile'] = 'curso/boletos/'
+		# It's usually a good idea to set the 'Content-Length' header too.
+		# You can also set any other required headers: Cache-Control, etc.
+		
+	return response
+	#return render(request, 'curso/confirmar_inscricao.html')

@@ -32,7 +32,7 @@
             	{% endfor %}
             	<br>
             {% endfor %}
-			<a class="btn btn-primary btn-lg" href="{% url 'curso.views.confirmar_inscricao' id=curso.id %}" role="button">Confirmar e Gerar Boleto</a>
+			<a class="btn btn-primary btn-lg" href="{% url 'curso.views.gerar_boleto' id_curso=curso.id %}" role="button">Confirmar e Gerar Boleto</a>
           </div>
         </div>
       </div>

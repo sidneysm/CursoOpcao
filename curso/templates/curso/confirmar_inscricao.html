@@ -1,7 +1,7 @@
 {% extends "curso/base.html" %}
 {% block content %}
-	<div class="container">
-        <div class="row">
+	<div class="cover-container">
+        
           <div class="col-md-6">
             <h1>Aluno</h1>
             Nome: {{ aluno.first_name }} {{ aluno.last_name }}<br>
@@ -34,8 +34,8 @@
             {% endfor %}
 			<a class="btn btn-primary btn-lg" href="{% url 'curso.views.gerar_boleto' id_curso=curso.id %}" role="button">Confirmar e Gerar Boleto</a>
           </div>
-        </div>
-      </div>
+       
+      
     </div>
 
 	

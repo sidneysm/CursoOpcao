@@ -68,7 +68,9 @@ def _gen(cpf):
 
 
 class CPF(object):
-
+    """
+    Define os métodos para a verificação de validade dos CPF digitados.
+    """
     _gen = staticmethod(_gen)
     _translate = staticmethod(_translate)
     
@@ -151,6 +153,9 @@ class CPF(object):
 # print (valido.isValid())
 
 def print_bb(Aluno):
+    """
+    Recebe uma instância de Aluno e gera boletos com as insformações passadas
+    """
     listaDados = []
     for i in range(1):
         d = BoletoBB(7, 2)
@@ -184,7 +189,7 @@ def print_bb(Aluno):
 
 
         d.sacado_nome           =  Aluno.first_name
-        d.sacado_documento      = '06072300456' 
+        d.sacado_documento      = Aluno.cpf 
         d.sacado_cidade         = Aluno.endereco
         d.sacado_uf             = 'RN'
         d.sacado_endereco       = 'Rua rua'

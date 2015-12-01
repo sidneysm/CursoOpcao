@@ -27,7 +27,7 @@
             	Professores:
             	{% for professor in disciplina.professores.all %}
             		
-            		{{ professor }} <br>
+            		{{ professor.first_name }} <br>
             		
             	{% endfor %}
             	<br>

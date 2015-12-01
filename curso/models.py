@@ -9,7 +9,7 @@ from curso.enums import Situacao
 
 
 class Aluno(User):
-
+	
 	cpf = models.CharField(max_length=14)
 	endereco = models.CharField(max_length=400)
 	data_de_nascimento = models.DateField(blank=True, null=False)
@@ -32,6 +32,10 @@ class Professor(User):
 
 	def publish(self):
 		self.save()
+
+	class Meta:
+		verbose_name = "Professor"
+		verbose_name_plural = "Professores"
 
 	def __str__(self):
 		return self.first_name

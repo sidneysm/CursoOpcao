@@ -1,7 +1,9 @@
 {% extends "curso/base.html" %}
 {% block content %}
 
-
+	<div class="row">
+		
+	
 		<div class="col-md-6">
 			<h2>
 				Dados Pessoais
@@ -38,12 +40,14 @@
 			</p>
 			
 		</div>
-	<p> {% csrf_token %} <a href="{% url 'curso.views.cursos' %}">Escolher um curso</a></p>
-	<p> {% csrf_token %} <a href="{% url 'curso.views.sair' %}">Sair</a></p>
-	<p> {% csrf_token %} <a href="{% url 'curso.views.editar_aluno' %}">Editar</a></p>
-
-
-
-
+	</div>
+		
+	
+	<a class="btn btn-lg btn-primary" href="{% url 'curso.views.cursos' %}">Escolher um curso</a>
+		<a class="btn btn-lg btn-primary" href="{% url 'curso.views.editar_aluno' %}">Editar</a>
+		<a class="btn btn-lg btn-primary" href="{% url 'curso.views.sair' %}">Sair</a>
+	
+	
+	
 {% endblock content %}
 

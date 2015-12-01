@@ -93,6 +93,8 @@ def editar_aluno(request):
 
 	aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
 	if request.method == "POST":
+
+
 		form = AtualizaAlunoForms(data=request.POST, instance=aluno)
 		if form.is_valid():
 			aluno = form.save(commit=False)
@@ -100,6 +102,7 @@ def editar_aluno(request):
 			index(request)
 			return render(request, 'curso/login.html',)
 	else:
+		print(type(aluno))
 		form = AtualizaAlunoForms(instance=aluno)
 	return render(request, 'curso/editar_aluno.html', {'form': form})
 	

@@ -28,8 +28,8 @@ class AtualizaAlunoForms(UserCreationForm):
 	"""
 	class Meta:
 		model = Aluno
-		fields = ('username', 'first_name', 'last_name', 'cpf','endereco', 'data_de_nascimento', 'email', )
-		exclude = ('password',)
+		fields = ('first_name', 'last_name', 'cpf','endereco', 'data_de_nascimento', 'email')
+		
 
 	def clean_cpf(self):
 		cd = self.cleaned_data

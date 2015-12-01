@@ -4,8 +4,6 @@ from . import views
 urlpatterns = [
 	url(r'^$', views.index),
 	url(r'^realizamatricula$', views.realiza_matricula),
-	url(r'^buscar_aluno$', views.buscar_aluno),
-	url(r'^lista_alunos$', views.lista_alunos),
 	url(r'^cursos$', views.cursos),
 	url(r'^aluno$', views.aluno),
 	url(r'^editar$', views.editar_aluno),

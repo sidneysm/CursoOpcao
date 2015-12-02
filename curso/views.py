@@ -52,7 +52,7 @@ def realiza_matricula(request):
 		form = AlunoForms
 	return render(request, 'curso/cadastrar.html', {'form': form})
 
-def login(request):
+def fazer_login(request):
 	return render(request, 'curso/login.html')
 
 
@@ -134,14 +134,16 @@ def gerar_boleto(request, id_curso):
 	O valor dos cursos são fixos.
 	"""
 	aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
-	aluno.situacao = Situacao.confir.value
-	aluno.mariculado = True
-	aluno.save()
-	curso = Curso.objects.get(id=id_curso)
-	curso.alunos.add(aluno)
-	curso.save()
-	if request.user.is_authenticated():
-		
+	if aluno.matriculado:
+		print ("O aluno já matriculado")
+		return render(request, "curso/aluno_cadastrado.html")
+	else:
+		aluno.situacao = Situacao.pago.value
+		aluno.matriculado = True
+		aluno.save()
+		curso = Curso.objects.get(id=id_curso)
+		curso.alunos.add(aluno)
+		curso.save()
 		print_bb(aluno)
 		file_path ='curso/boletos/boleto-teste-%s.pdf' % aluno.first_name
 		

@@ -10,7 +10,7 @@ class AlunoForms(UserCreationForm):
 	class Meta:
 		model = Aluno
 		
-		fields = ('username', 'first_name', 'last_name', 'cpf','endereco', 'data_de_nascimento', 'email', )
+		fields = ('username', 'first_name', 'last_name', 'cpf','endereco', 'data_de_nascimento', 'telefone', 'email', )
 
 	def clean_cpf(self):
 		cd = self.cleaned_data
@@ -28,7 +28,7 @@ class AtualizaAlunoForms(UserCreationForm):
 	"""
 	class Meta:
 		model = Aluno
-		fields = ('first_name', 'last_name', 'cpf','endereco', 'data_de_nascimento', 'email')
+		fields = ('first_name', 'last_name', 'cpf','endereco', 'data_de_nascimento', 'telefone', 'email')
 		
 
 	def clean_cpf(self):

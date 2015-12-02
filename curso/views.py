@@ -5,7 +5,7 @@ from django.http import HttpResponse, FileResponse
 
 
 from decimal import *
-import pyboleto
+import pyboleto, types
 from pyboleto.bank.bancodobrasil import BoletoBB
 from pyboleto.data import BoletoData
 from pyboleto.pdf import BoletoPDF
@@ -14,6 +14,7 @@ import datetime
 from curso.util import print_all, print_bb
 from .forms import AlunoForms, AtualizaAlunoForms
 from .models import *
+from .enums import Situacao
 
 # Create your views here.
 
@@ -51,6 +52,10 @@ def realiza_matricula(request):
 		form = AlunoForms
 	return render(request, 'curso/cadastrar.html', {'form': form})
 
+def login(request):
+	return render(request, 'curso/login.html')
+
+
 def aluno(request):
 	"""
 	Entra na tela de login do aluno.
@@ -67,7 +72,6 @@ def aluno(request):
 		print (request.POST['nome'])
 		usuario = authenticate(
 			username=request.POST['nome'], password=request.POST['senha'])
-		
 		if usuario is not None:
 			if usuario.is_active:
 				login(request, usuario)
@@ -130,7 +134,8 @@ def gerar_boleto(request, id_curso):
 	O valor dos cursos são fixos.
 	"""
 	aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
-	aluno.situacao = "Aguardando Confirmação de Pagamento"
+	aluno.situacao = Situacao.confir.value
+	aluno.mariculado = True
 	aluno.save()
 	curso = Curso.objects.get(id=id_curso)
 	curso.alunos.add(aluno)

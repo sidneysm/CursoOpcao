@@ -3,4 +3,3 @@ __pycache__
 ambientevirtual
 db.sqlite3
 .DS_Store
-*.pdf

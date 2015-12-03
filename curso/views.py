@@ -53,6 +53,39 @@ def realiza_matricula(request):
 	return render(request, 'curso/cadastrar.html', {'form': form})
 
 def fazer_login(request):
+
+	if request.user.is_authenticated():
+		if is_aluno(request.session['_auth_user_id']):
+			aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
+			return redirect('curso.views.aluno')
+		else:
+			professor = Professor.objects.get(user_ptr_id=request.session['_auth_user_id'])
+			print("aqui")
+			#return render(request, 'curso/professor_detalhes.html', {'professor': professor},)
+			return redirect ('curso.views.professor')
+
+	if request.method == "POST":
+		usuario = authenticate(
+			username=request.POST['nome'], password=request.POST['senha'])
+		if usuario is not None:
+			if usuario.is_active:
+				login(request, usuario)
+				if is_aluno(request.session['_auth_user_id']):
+					aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
+					return redirect('curso.views.aluno')
+				else:
+					professor = Professor.objects.get(user_ptr_id=request.session['_auth_user_id'])
+			#return render(request, 'curso/professor_detalhes.html', {'professor': professor},)
+					return redirect ('curso.views.professor')
+			else:
+				print("The password is valid, but the account has been disabled!")
+				
+
+		else:
+			# the authentication system was unable to verify the username and password
+			print("The username and password were incorrect.")
+			mensagem = "O nome ou a senha estão errados"
+			return render(request, 'curso/login.html', {'message':mensagem})
 	return render(request, 'curso/login.html')
 
 
@@ -68,26 +101,40 @@ def aluno(request):
 		return render(request, 'curso/aluno_detalhes.html', {'aluno': aluno},)
 	
 
-	if request.method == "POST":
-		print (request.POST['nome'])
-		usuario = authenticate(
-			username=request.POST['nome'], password=request.POST['senha'])
-		if usuario is not None:
-			if usuario.is_active:
-				login(request, usuario)
-				aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
-				print("User is valid, active and authenticated")
-				return render(request, 'curso/aluno_detalhes.html', {'aluno': aluno},)
-			else:
-				print("The password is valid, but the account has been disabled!")
+	# if request.method == "POST":
+	# 	print (request.POST['nome'])
+	# 	usuario = authenticate(
+	# 		username=request.POST['nome'], password=request.POST['senha'])
 
-		else:
-			# the authentication system was unable to verify the username and password
-			print("The username and password were incorrect.")
-			mensagem = "O nome ou a senha estão errados"
-			return render(request, 'curso/login.html', {'message':mensagem})
+	# 	if usuario is not None:
+	# 		if usuario.is_active:
+	# 			login(request, usuario)
+	# 			try:
+	# 				aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
+	# 				print("User is valid, active and authenticated")
+	# 				return render(request, 'curso/aluno_detalhes.html', {'aluno': aluno},)
+	# 			except Aluno.DoesNotExist:
+	# 				professor = Professor.objects.get(user_ptr_id=request.session['_auth_user_id'])
+	# 				print('Isso é um professor e agora?')
+	# 		else:
+	# 			print("The password is valid, but the account has been disabled!")
+
+	# 	else:
+	# 		# the authentication system was unable to verify the username and password
+	# 		print("The username and password were incorrect.")
+	# 		mensagem = "O nome ou a senha estão errados"
+	# 		return render(request, 'curso/login.html', {'message':mensagem})
 		
 	return render(request, 'curso/login.html')
+
+def professor(request):
+
+	if request.user.is_authenticated():
+
+		professor = Professor.objects.get(user_ptr_id=request.session['_auth_user_id'])
+		return render(request, 'curso/professor_detalhes.html', {'professor': professor},)
+	return render(request, 'curso/login.html')
+	# return redirect("/")
 
 def editar_aluno(request):
 	"""
@@ -95,7 +142,7 @@ def editar_aluno(request):
 	Uma vez alterado o aluno precisa relogar-se no sistema.
 	"""
 
-	aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
+	aluno = Professor.objects.get(user_ptr_id=request.session['_auth_user_id'])
 	if request.method == "POST":
 
 
@@ -106,7 +153,6 @@ def editar_aluno(request):
 			index(request)
 			return render(request, 'curso/login.html',)
 	else:
-		print(type(aluno))
 		form = AtualizaAlunoForms(instance=aluno)
 	return render(request, 'curso/editar_aluno.html', {'form': form})
 	
@@ -156,6 +202,13 @@ def gerar_boleto(request, id_curso):
 		
 	return response
 
+def is_aluno(id):
+	try:
+		aluno = Aluno.objects.get(user_ptr_id=id)
+		return True
+	except Aluno.DoesNotExist:
+		return False
+	
 
 
 		

@@ -1,7 +1,7 @@
 {% extends "curso/base.html" %}
 {% block content %}
 	
-	<form method="POST" class="form-signin" action="{% url 'curso.views.aluno' %}"> {% csrf_token %}
+	<form method="POST" class="form-signin" action="{% url 'curso.views.fazer_login' %}"> {% csrf_token %}
 		<h2 class="form-signin-heading">Faça o Login</h2>
 
 		<label for="inputEmail" class="sr-only">Nome</label>

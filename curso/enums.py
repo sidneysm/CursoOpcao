@@ -4,6 +4,6 @@ class Situacao(Enum):
 	"""
 	Define as possiveis situações de estado do pagamento.
 	"""
-	confir = "Pagamento Confirmado"
+	pago = "Pagamento Confirmado"
 	aguardando = "Aguardando confirmação do pagamento"
 	nao_pago = "Pagamento não efetuado"

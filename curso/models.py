@@ -16,6 +16,7 @@ class Aluno(User):
 	data_de_matricula = models.DateTimeField(blank=True, null=True)
 	telefone = models.CharField(max_length=20)
 	situacao = models.CharField(max_length=50, default=Situacao.nao_pago.value)
+	matriculado = models.BooleanField(default=False)
 
 	class Meta:
 		verbose_name = "Aluno"

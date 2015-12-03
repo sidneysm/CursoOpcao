@@ -6,8 +6,10 @@ urlpatterns = [
 	url(r'^realizamatricula$', views.realiza_matricula),
 	url(r'^cursos$', views.cursos),
 	url(r'^aluno$', views.aluno),
-	url(r'^editar$', views.editar_aluno),
+	url(r'^professor$', views.professor),
+	url(r'^fazer_login$', views.fazer_login),
+	url(r'^aluno/editar$', views.editar_aluno),
 	url(r'^sair$', views.sair),
-	url(r'^confirmar_inscricao/(?P<id>[0-9]+)/$', views.confirmar_inscricao, name="confirmar_inscricao"),
+	url(r'^aluno/(?P<id>[0-9]+)/confirmar_inscricao/$', views.confirmar_inscricao, name="confirmar_inscricao"),
 	url(r'^gerar_boleto/(?P<id_curso>[0-9]+)/$$', views.gerar_boleto)
 ]

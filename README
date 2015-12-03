@@ -1,1 +1,8 @@
 Este projeto é prototipo de Site para cadastro de aluno e pagamento de inscrições.
+
+O site possui: 
+- Um gerenciamento completo para o administrador.
+- Realização de cadastro para os alunos.
+- Escolha de um curso e emissão de um boleto para pagamento.
+
+Em breve novas funcionalidades.

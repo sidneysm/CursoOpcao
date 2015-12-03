@@ -55,6 +55,9 @@ def realiza_matricula(request):
 def fazer_login(request):
 
 	if request.user.is_authenticated():
+		if request.user.is_superuser:
+			logout(request)
+			return render(request, 'curso/login.html')
 		if is_aluno(request.session['_auth_user_id']):
 			aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
 			return redirect('curso.views.aluno')

@@ -53,7 +53,9 @@ def realiza_matricula(request):
 	return render(request, 'curso/cadastrar.html', {'form': form})
 
 def fazer_login(request):
-
+	"""
+	realiza o login do sitema para professores 
+	"""
 	if request.user.is_authenticated():
 		if request.user.is_superuser:
 			logout(request)
@@ -74,11 +76,8 @@ def fazer_login(request):
 			if usuario.is_active:
 				login(request, usuario)
 				if is_aluno(request.session['_auth_user_id']):
-					aluno = Aluno.objects.get(user_ptr_id=request.session['_auth_user_id'])
 					return redirect('curso.views.aluno')
 				else:
-					professor = Professor.objects.get(user_ptr_id=request.session['_auth_user_id'])
-			#return render(request, 'curso/professor_detalhes.html', {'professor': professor},)
 					return redirect ('curso.views.professor')
 			else:
 				print("The password is valid, but the account has been disabled!")
@@ -105,7 +104,12 @@ def aluno(request):
 	return render(request, 'curso/login.html')
 
 def professor(request):
+	"""
+	Entra na tela de login do professor.
+	Uma vez logado o professor é autenticado abrindo assim uma sessão para ele.
+	Uma vez logado essa view direciona o usuário para uma página com seus dados. 
 
+	"""
 	if request.user.is_authenticated():
 
 		professor = Professor.objects.get(user_ptr_id=request.session['_auth_user_id'])
